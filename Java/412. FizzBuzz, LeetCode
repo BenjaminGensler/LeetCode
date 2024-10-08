@@ -1,0 +1,36 @@
+/*
+* Benjamin Gensler
+* '412. FizzBuzz, LeetCode'
+* 11/15/2022
+*/
+class Solution 
+{
+    public List<String> fizzBuzz(int n) //need to create ArrayList for 'List<String>' to return
+    {
+        List<String> list=new ArrayList<String>(); //ArrayList to hold String values
+        
+        for(int i=1; i<=n; i++)     //loop to go through all number from 1 to 'n'
+        {
+            
+            if(((i % 5) == 0) && ((i % 3) == 0)) // Checks to see if value has remainder of 0 from 5 and 3
+            {
+                list.add("FizzBuzz");       //"FizzBuzz" as placehoder
+            }
+            else if((i%3) == 0)     // Checks for remainder 0 from 3
+            {
+                list.add("Fizz");       //"Fizz" as placeholder
+            }
+            else if((i%5) == 0)     //Checks for remainder 0 from 5
+            {
+                list.add("Buzz");       //"Buzz" as placeholder
+            }  
+            else                    //If nothing above works
+            {
+                String IntToString = String.valueOf(i);     //Converts Int to String value
+                list.add(IntToString);                  //adds # to ArrayList
+            }
+            
+        }
+        return list;
+    }
+}
