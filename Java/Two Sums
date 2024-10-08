@@ -1,0 +1,26 @@
+class Solution 
+{
+    public int[] twoSum(int[] nums, int target) 
+    {
+        int size = nums.length;
+        
+        int[] answer = new int[2];  //array to hold the correct output
+        for(int i = 0; i<(size - 1); i++) //These 2 for loops create 2 values which will loop through the array, never adding the same values together twice
+        {
+            for(int j = i+1; j<size; j++)
+            {
+                int value = nums[i] + nums[j];  //adds the numbers in the current positions together
+                
+                if(value == target) //compares if the current value is equal to the target
+                {
+                    answer[0] = i;
+                    answer[1] = j;
+                    
+                    return answer;  //returns [i,j]
+                    
+                }
+            }
+        }
+        return nums;
+    }
+}
