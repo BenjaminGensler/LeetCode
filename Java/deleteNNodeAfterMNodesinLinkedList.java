@@ -21,7 +21,10 @@ class Solution {
                 current = current.next;
             }
 
-
+            if (current == null) {
+                break;
+            }
+            
             ListNode skipper = current.next;
 
             for(int i = 0; i < n && skipper != null; i++){
@@ -31,7 +34,6 @@ class Solution {
             current = skipper;
         }
         
-        //
         return head;
     }
 }
