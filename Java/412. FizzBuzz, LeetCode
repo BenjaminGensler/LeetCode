@@ -2,35 +2,33 @@
 * Benjamin Gensler
 * '412. FizzBuzz, LeetCode'
 * 11/15/2022
+* Redone on 10/28/2025
 */
-class Solution 
-{
-    public List<String> fizzBuzz(int n) //need to create ArrayList for 'List<String>' to return
-    {
-        List<String> list=new ArrayList<String>(); //ArrayList to hold String values
-        
-        for(int i=1; i<=n; i++)     //loop to go through all number from 1 to 'n'
-        {
-            
-            if(((i % 5) == 0) && ((i % 3) == 0)) // Checks to see if value has remainder of 0 from 5 and 3
-            {
-                list.add("FizzBuzz");       //"FizzBuzz" as placehoder
+
+class Solution {
+    public List<String> fizzBuzz(int n) {
+        List<String> arr = new ArrayList<>(n);
+
+        for(int i = 1; i <= n; i++){
+            // divisble by both 3 and 5 (ex/ 15, 30, etc.)
+            if(i%3==0 && i%5==0){
+                arr.add("FizzBuzz");
             }
-            else if((i%3) == 0)     // Checks for remainder 0 from 3
-            {
-                list.add("Fizz");       //"Fizz" as placeholder
+            // divisble only by 3 (ex/ 3, 6, 9, etc.)
+            else if(i%3==0){
+                arr.add("Fizz");
             }
-            else if((i%5) == 0)     //Checks for remainder 0 from 5
-            {
-                list.add("Buzz");       //"Buzz" as placeholder
-            }  
-            else                    //If nothing above works
-            {
-                String IntToString = String.valueOf(i);     //Converts Int to String value
-                list.add(IntToString);                  //adds # to ArrayList
+            // divisble only by 5 (ex/ 5, 10, 20, etc.)
+            else if(i%5==0){
+                arr.add("Buzz");
             }
-            
+            // not disible by 3 or 5
+            else{
+                arr.add(String.valueOf(i));
+            }
         }
-        return list;
+        
+        // return the result List<String>
+        return arr;
     }
 }
