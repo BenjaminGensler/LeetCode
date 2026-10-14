@@ -1,42 +1,20 @@
 // Benjamin Gensler
-// 1/29/25
 // 268. Missing Number
-// The given arrays have all the numbers from 0 - n. Determine which of the numbers is missing. (I decided to use insertionSort() to sort the array
+// Return the missing number of the non-sorted array
+// Time coplexity O(n)
 class Solution {
     public int missingNumber(int[] nums) {
-        //Sorting the array (insertion sort)
-        insertionSort(nums);
+        //sum of numbers formula S=n(n+1)/2
+        int numlength = nums.length;
+        int sum = (numlength * (numlength +1)) /2;
 
-        // loop to check each number in order
-        for(int i = 0; i < nums.length; i++){
-            if(nums[i] != i){
-                return i;
-            }
+        int resultingSum = 0;
+        // loop to determine sum of current array
+        for(int i = 0; i < numlength; i++){
+            resultingSum+=nums[i];
         }
 
-        //returns the last number (n)
-        return nums.length;
-    }
-
-    private static void insertionSort(int[] nums){
-        // exit function if array is empty or has only one element
-        if(nums.length <= 1){
-            return;
-        }
-
-        // Loop to sort the array
-        for (int i = 1; i < nums.length; i++) {
-            int holder = nums[i];
-            int k = i - 1;
-
-            // Shift elements to the right
-            while (k >= 0 && nums[k] > holder) {
-                nums[k + 1] = nums[k];
-                k--;
-            }
-
-            // Place holder in current position
-            nums[k + 1] = holder;
-        }
+        // return the missing number based off sum - resulting sum of array 
+        return sum - resultingSum;
     }
 }
